@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Birthday Year Guesser</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background: rgba(0,0,0,0.3);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            width: 320px;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            border-radius: 6px;
+            border: none;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            background: #00e676;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #00c853;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>🎂 Birthday Year Guesser</h2>
+    <p>Enter your age:</p>
+
+    <input type="number" id="age" placeholder="Your age">
+    <br>
+    <button onclick="guessYear()">Guess My Birth Year</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+    function guessYear() {
+        const age = document.getElementById("age").value;
+        const currentYear = new Date().getFullYear();
+
+        if (age === "" || age <= 0) {
+            document.getElementById("result").innerText = "🤨 Enter a valid age!";
+            return;
+        }
+
+        const birthYear = currentYear - age;
+        document.getElementById("result").innerText =
+            "👀 You were probably born in " + birthYear + "!";
+    }
+</script>
+
+</body>
+</html>
